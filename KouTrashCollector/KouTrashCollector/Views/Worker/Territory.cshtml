@@ -1,0 +1,45 @@
+﻿@model KouTrashCollector.ViewModel.CustomerRoute
+@{
+    ViewBag.Title = "Territory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers in Zip Territory</h2>
+
+
+
+@if (Model.Customers.Count() == 0)
+{
+    <p>There are no Customers in this Zipcode</p>
+}
+else
+{
+    @Html.ActionLink("Create Route", "Route", "Worker", new { id = Model.WorkerZipId }, new { @class = "btn btn-primary" })
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Pick-Up Day</th>
+                <th>Street 1</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@customer.LastName</td>
+                    <td>@customer.FirstName</td>
+                    <td>@Html.ActionLink(customer.PickUpDay.DayOfWeek, "DowTerritory", "Worker", new { id = customer.PickUpDayId, zipId = customer.ZipcodeId }, null) </td>
+                    <td>@customer.StreetOne</td>
+                    <td>@customer.City.CityName</td>
+                    <td>@customer.State.StateName</td>
+                    <td>@customer.Zipcode.ZipcodeNum</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,55 @@
+﻿@model IEnumerable<KouTrashCollector.Models.Customer>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h3> <b>Membership Overview</b></h3>
+        <ul>
+            <li>Front door trash and recycle pick up service</li>
+            <li>Help you live a healthier life style</li>
+            <li>Get rid of smelly trash</li>
+            <li>Help keep your community clean</li>
+        </ul>
+    </div>
+    <div class="col-md-4">
+        =
+    </div>
+</div>
+
+
+
+
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+    <div class="col-md-4">
+        <h3> <b>Service Fees</b></h3>
+        <table style="width:75%" height="50" border="1">
+            <tr><td align="center"><b>One Time</b></td><td align="center"><b>Weekly</b></td></tr>
+            <tr><td align="center">$10.00</td><td align="center">$8.00</td></tr>
+        </table>
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+    </div>
+
+    <div class="col-md-4">
+        <br />
+        Register to become a
+
+        @Html.ActionLink("Customer!", "New", null, new { @class = "btn btn-primary" })
+
+    </div>
+    <div class="col-md-4">
+    </div>
+</div>
+

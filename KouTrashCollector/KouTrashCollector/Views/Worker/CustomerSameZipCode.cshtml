@@ -1,0 +1,50 @@
+﻿@model KouTrashCollector.ViewModel.CustomerRoute
+@{
+    ViewBag.Title = "Territory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Customers in Zip Territory</h2>
+
+@Html.ActionLink("Create Route", "DoWRoute", "Worker", new { id = Model.DayOfWeekId, zipId = Model.WorkerZipId }, new { @class = "btn btn-primary" })
+
+@if (Model.Customers.Count() == 0)
+{
+    <p>There are no Customers on this Route</p>
+}
+else
+{
+    <table class="table table-condensed table-hover">
+        <thead>
+            <tr>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>Pick-Up Day</th>
+                <th>Street 1</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Zipcode</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var customer in Model.Customers)
+            {
+                <tr>
+                    <td>@customer.LastName</td>
+                    <td>@customer.FirstName</td>
+                    <td>@customer.PickUpDay.DayOfWeek</td>
+                    <td>@customer.StreetOne</td>
+                    <td>@customer.City.CityName</td>
+                    <td>@customer.State.StateName</td>
+                    <td>@customer.Zipcode.ZipcodeNum</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+@{
+    ViewBag.Title = "DayOfWeekTerritory";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.ActionLink("Map all Customers for this Zipcode", "Route", "Worker", new { id = Model.WorkerZipId }, new { @class = "btn btn-primary" })

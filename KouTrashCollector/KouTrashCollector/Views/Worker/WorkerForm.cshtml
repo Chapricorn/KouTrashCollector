@@ -1,0 +1,32 @@
+﻿@model KouTrashCollector.ViewModel.WorkerForm
+@{
+    ViewBag.Title = "Form";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>New Employee</h2>
+
+@using (Html.BeginForm("Save", "Worker"))
+{
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.FirstName)
+        @Html.TextBoxFor(m => m.Worker.FirstName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.LastName)
+        @Html.TextBoxFor(m => m.Worker.LastName, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.EmailAddress)
+        @Html.TextBoxFor(m => m.Worker.EmailAddress, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(m => m.Worker.ZipcodeTerritoryId)
+        @Html.DropDownListFor(m => m.Worker.ZipcodeTerritoryId, new SelectList(Model.ZipCodes, "Id", "ZipCodeNum"), "Choose Territory", new { @class = "form-control" })
+    </div>
+    @Html.HiddenFor(m => m.Worker.Id)
+    <button type="submit" class="btn btn-primary">Save</button>
+}
+
+
+
