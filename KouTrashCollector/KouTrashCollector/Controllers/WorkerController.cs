@@ -133,7 +133,7 @@ namespace KouTrashCollector.Controllers
                 ZipCodes = zipcode,
 
             };
-            return View("Form", viewModel);
+            return View("WorkerForm", viewModel);
         }
         public ActionResult Edit(int id)
         {
@@ -201,7 +201,7 @@ namespace KouTrashCollector.Controllers
             return View(worker);
         }
 
-        // POST: Patients/Edit/5
+        // POST: Workers/Edit/5
         // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
@@ -217,7 +217,7 @@ namespace KouTrashCollector.Controllers
             return View(worker);
         }
 
-        // GET: Patients/Delete/5
+        // GET: Workers/Delete/5
         public ActionResult Delete(int id)
         {
             if (id == null)
@@ -232,7 +232,7 @@ namespace KouTrashCollector.Controllers
             return View(worker);
         }
 
-        // POST: Patients/Delete/5
+        // POST: Workers/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)

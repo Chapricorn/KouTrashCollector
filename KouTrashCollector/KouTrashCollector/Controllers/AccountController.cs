@@ -12,7 +12,6 @@ using KouTrashCollector.Models;
 
 namespace KouTrashCollector.Controllers
 {
-    [Authorize]
     public class AccountController : Controller
     {
         private ApplicationSignInManager _signInManager;
