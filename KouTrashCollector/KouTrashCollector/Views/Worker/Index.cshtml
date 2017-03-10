@@ -3,23 +3,33 @@
     ViewBag.Title = "Index";
 }
 
-<h2>Milwaukee DPW Employees</h2>
-@Html.ActionLink("Add Employee", "New", null, new { @class = "btn btn-primary" })
+<center>
+    <h2>Employee Territory Route</h2>
+   
+</center>
+<br /><br />
 
 @if (!Model.Any())
 {
-    <p>We don't have any Employees</p>
+    <p>No Employee Found</p>
 }
 else
 
 {
+    if (Request.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <center>
+    @Html.ActionLink("Add New Employee", "New", null, new { @class = "btn btn-primary" })
+            </center>
+            <br />
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <th>Employee Last Name</th>
-                <th>Employee First Name</th>
-                <th>Employee E-Mail Address</th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>E-Mail Address</th>
                 <th>Territory Zip-Code</th>
+                <th>Modify</th>
             </tr>
         </thead>
         <tbody>
@@ -31,6 +41,7 @@ else
                     <td>@worker.EmailAddress</td>
                     <td>@Html.ActionLink(worker.ZipcodeTerritory.ZipcodeNum, "Territory", "Worker", new { id = worker.ZipcodeTerritory.Id, workerid = worker.Id }, null) </td>
                     <td>
+                        
                         @Html.ActionLink("Edit", "EditWorker", new { id = worker.Id }) |
                         @Html.ActionLink("Delete", "Delete", new { id = worker.Id })
                     </td>
@@ -38,5 +49,33 @@ else
             }
         </tbody>
     </table>
+    }
+
+    else
+    {
+        <table class="table table-condensed table-hover">
+            <thead>
+                <tr>
+                    <th>Last Name</th>
+                    <th>First Name</th>
+                    <th>E-Mail Address</th>
+                    <th>Zip-Code</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var worker in Model)
+                {
+                    <tr>
+                        <td>@worker.LastName</td>
+                        <td>@worker.FirstName</td>
+                        <td>@worker.EmailAddress</td>
+                        <td>@Html.ActionLink(worker.ZipcodeTerritory.ZipcodeNum, "Territory", "Worker", new { id = worker.ZipcodeTerritory.Id, workerid = worker.Id }, null) </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
 }
+
+
 

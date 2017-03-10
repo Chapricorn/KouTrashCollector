@@ -2,13 +2,14 @@
  @{  ViewBag.Title = "CustomerForm";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
+<center>
+<h2>Update Information</h2>
+    </center>
+<br />
 <div class="row">
     <div class="col-md-4">
     </div>
     <div class="col-md-4">
-
-        <h2>Customer Information</h2>
 
         @using (Html.BeginForm("Save", "Customers"))
             {
@@ -30,23 +31,23 @@
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Customer.City)
-                    @Html.DropDownListFor(m => m.Customer.CityId, new SelectList(Model.Cities, "Id", "CityName"), "Choose City", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Customer.CityId, new SelectList(Model.Cities, "Id", "CityName"), new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Customer.State)
-                    @Html.DropDownListFor(m => m.Customer.StateId, new SelectList(Model.States, "Id", "StateName"), "Choose State", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Customer.StateId, new SelectList(Model.States, "Id", "StateName"),new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Customer.Zipcode)
-                    @Html.DropDownListFor(m => m.Customer.ZipcodeId, new SelectList(Model.Zipcodes, "Id", "ZipcodeNum"), "Choose ZIP", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Customer.ZipcodeId, new SelectList(Model.Zipcodes, "Id", "ZipcodeNum"),new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Customer.MembershipType)
-                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "MembershipName"), "Select Membership Type", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Customer.MembershipTypeId, new SelectList(Model.MembershipTypes, "Id", "MembershipName"), new { @class = "form-control" })
                 </div>
                 <div class="form-group">
                     @Html.LabelFor(m => m.Customer.PickUpDay)
-                    @Html.DropDownListFor(m => m.Customer.PickUpDayId, new SelectList(Model.PickUpDays, "Id", "DayOfWeek"), "Select Pick-up Day", new { @class = "form-control" })
+                    @Html.DropDownListFor(m => m.Customer.PickUpDayId, new SelectList(Model.PickUpDays, "Id", "DayOfWeek"), new { @class = "form-control" })
                 </div>
                 <div>
                     <label>
@@ -57,6 +58,7 @@
 
                 @Html.HiddenFor(m => m.Customer.Id)
                 <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary" style="color:white"> @Html.ActionLink("Return to Customer List", "Index")</button>
         }
 
 

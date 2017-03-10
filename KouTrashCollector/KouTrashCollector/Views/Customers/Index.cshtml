@@ -4,27 +4,26 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-
-
-
-
-@*@if (Request.IsAuthenticated && User.IsInRole("CanManageForm"))
-{*@
     
-    <h3>Customer Information</h3>
+   <center>
+    <h3>Customer List</h3>
     @Html.ActionLink("Add Customer", "New", null, new { @class = "btn btn-primary" })
+</center> 
+<br />
     <table class="table table-condensed table-hover">
         <thead>
             <tr>
-                <th>Last Name (Edit)</th>
-                <th>First Name (Details)</th>
-                <th>E-Mail Address</th>
-                <th>Street One</th>
+                <th>Customer Detail </th>
+                <th>Last Name</th>
+                <th>First Name</th>
+                <th>E-Mail</th>
+                <th>Street</th>
                 <th>City</th>
                 <th>State</th>
                 <th>Zipcode</th>
                 <th>Membership Type</th>
                 <th>Pick up Day</th>
+                <th>Modify</th>
 
             </tr>
         </thead>
@@ -32,8 +31,9 @@
             @foreach (var customer in Model)
             {
                 <tr>
-                    <td>@Html.ActionLink(customer.LastName, "Edit", "Customers", new {id = customer.Id }, null) </td>
-                    <td>@Html.ActionLink(customer.FirstName, "Details", "Customers", new { id = customer.Id }, null) </td>
+                    <td>@Html.ActionLink("View", "Details", "Customers", new { id = customer.Id }, null)</td>                   
+                    <td>@customer.FirstName</td>
+                    <td>@customer.LastName</td>
                     <td>@customer.Email</td>
                     <td>@customer.StreetOne</td>
                     <td>@customer.City.CityName</td>
@@ -41,6 +41,8 @@
                     <td>@customer.Zipcode.ZipcodeNum</td>
                     <td>@customer.MembershipType.MembershipName</td>
                     <td>@customer.PickUpDay.DayOfWeek</td>
+                    <td>@Html.ActionLink("Edit", "Edit", "Customers", new { id = customer.Id }, null)|
+                        @Html.ActionLink("Delete", "Delete", new { id = customer.Id })</td>
                 </tr>
             }
         </tbody>

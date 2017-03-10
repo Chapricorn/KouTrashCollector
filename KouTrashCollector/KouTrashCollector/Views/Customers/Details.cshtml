@@ -11,9 +11,7 @@
     <div class="col-md-4">
         <h2>@Model.FirstName @Model.LastName</h2>
         <br />
-        @Html.ActionLink("Add Vacation", "AddVacation", "Customers", new { id = Model.Id }, new { @class = "btn btn-primary" })
-        <br />
-        <br />
+     
         <ul>
             <li>Email: @Model.Email</li>
             <li>Street 1: @Model.StreetOne</li>
@@ -21,50 +19,51 @@
             <li>State: @Model.State.StateName</li>
             <li>Zip code: @Model.Zipcode.ZipcodeNum</li>
             <li>Membership Type: @Model.MembershipType.MembershipName</li>
-            @if (Model.MembershipType.MembershipName == "Weekly")
-            {
-                var averageWeeksPerMonth = 4.33;
-                <li>@DateTime.Now.ToString("MMMM") Bill: $@((Model.MembershipType.PickUpRate) * (averageWeeksPerMonth))</li>
-            }
-            else
-            {
-                <li>@DateTime.Now.ToString("MMMM") Bill: $@Model.MembershipType.PickUpRate</li>
-            }
-
-
         </ul>
-        <form action="https://www.sandbox.paypal.com/cgi-bin/webscr" method="post" target="_top">
-            <input type="hidden" name="cmd" value="_s-xclick">
-            <input type="hidden" name="hosted_button_id" value="7X64BW24XXLNJ">
-            <table>
-                <tr>
-                    <td>
-                        <input type="hidden" name="on0" value="Pickup Price"><b>Total Amount Due:</b>
-
-                        <select name="os0">
-
-                            @if (Model.MembershipType.MembershipName == "Weekly")
-                            {
-                                var averageWeeksPerMonth = 4.33;
-                                <option value="Weekly Pickup">$@((Model.MembershipType.PickUpRate) * (averageWeeksPerMonth))</option>
-                            }
-                            else
-                            {
-                                <option value="One Time Pickup">$@Model.MembershipType.PickUpRate </option>
-                            }
-
-                        </select>
-                    </td>
-                </tr>
-            </table><br />
-            <input type="hidden" name="currency_code" value="USD">
-            <input type="image" src="https://www.sandbox.paypal.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
-            <img alt="" border="0" src="https://www.sandbox.paypal.com/en_US/i/scr/pixel.gif" width="1" height="1">
-        </form>
-    </div>
 
 
-    <div class="col-md-4">
-    </div>
-</div>
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+    <input type="hidden" name="cmd" value="_s-xclick">
+    <input type="hidden" name="hosted_button_id" value="USZC9KPBTPDC4">
+    <table>
+        <tr><td><input type="hidden" name="on0" value="Membership type">Membership type</td></tr>
+        <tr>
+            <td>
+                <select name="os0" style="color:black">
+
+
+
+                    @if (Model.MembershipType.MembershipName == "Once a Week")
+                    {
+                    
+                        <option value="Once a Week">$25</option>
+                    }
+                    else if (Model.MembershipType.MembershipName == "Twice a Week")
+                    {
+                        <option value="Twice a Week">$35 </option>
+                    }
+                    else if (Model.MembershipType.MembershipName == "Once a Month")
+                    {
+                        <option value="Once a Month">$8 </option>
+                    }
+                    else if (Model.MembershipType.MembershipName == "Twice a Month")
+                    {
+                        <option value="Twice a Month">$15 </option>
+                    }
+                    else
+                    {
+                        <option value="None"> $0 </option>
+                    }
+
+                </select>
+            </td>
+        </tr>
+    </table>
+    <input type="hidden" name="currency_code" value="USD">
+    <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_buynowCC_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+    <img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+        <br />
+
+        <button type="submit" class="btn btn-primary" style="color:white"> @Html.ActionLink("Return to Customer List", "Index")</button>
 

@@ -16,31 +16,22 @@
     <div>
         <b>Start Location:</b>
         <select id="start">
-            <option value="333 N Plankinton Ave, 53203">GYJ Enterprise HQ</option>
+            <option value="333 N Plankinton Ave, 53203">KC Trash Services</option>
         </select>
         <b>Customers Location</b>
 
-        <select multiple id="waypoints">
+        <b>End:</b>
+        <select id="end">
+            
             @{int i = 1;}
             @foreach (var customer in Model)
             {
 
                 <option value="@customer.StreetOne, @customer.Zipcode.ZipcodeNum">@i @customer.LastName </option>
                 i++;
-            }
-        </select>
-
-        <b>End:</b>
-        <select id="end">
-            @{i = 1;}
-            @foreach (var customer in Model)
-            {
-
-                <option value="@customer.StreetOne, @customer.Zipcode.ZipcodeNum">@i @customer.LastName </option>
-                i++;
 
             }
-            <option value="333 N Plankinton Ave, 53203">GYJ Enterprise HQ</option>
+            <option value="333 N Plankinton Ave, 53203">KC Trash Services</option>
             >
         </select>
         <input type="submit" id="submit">
@@ -67,21 +58,12 @@
       }
 
       function calculateAndDisplayRoute(directionsService, directionsDisplay) {
-        var waypts = [];
-        var checkboxArray = document.getElementById('waypoints');
-        for (var i = 0; i < checkboxArray.length; i++) {
-          if (checkboxArray.options[i].selected) {
-            waypts.push({
-              location: checkboxArray[i].value,
-              stopover: true
-            });
-          }
-        }
+    
 
         directionsService.route({
           origin: document.getElementById('start').value,
           destination: document.getElementById('end').value,
-          waypoints: waypts,
+          //waypoints: waypts,
           optimizeWaypoints: true,
           travelMode: 'DRIVING'
         }, function(response, status) {

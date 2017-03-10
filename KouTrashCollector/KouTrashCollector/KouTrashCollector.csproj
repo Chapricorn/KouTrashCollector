@@ -227,6 +227,34 @@
     <Compile Include="Migrations\201703061839133_adding database.Designer.cs">
       <DependentUpon>201703061839133_adding database.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201703092215457_adding errormessage.cs" />
+    <Compile Include="Migrations\201703092215457_adding errormessage.Designer.cs">
+      <DependentUpon>201703092215457_adding errormessage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092222215_adding name.cs" />
+    <Compile Include="Migrations\201703092222215_adding name.Designer.cs">
+      <DependentUpon>201703092222215_adding name.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092225019_change.cs" />
+    <Compile Include="Migrations\201703092225019_change.Designer.cs">
+      <DependentUpon>201703092225019_change.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092303596_worker.cs" />
+    <Compile Include="Migrations\201703092303596_worker.Designer.cs">
+      <DependentUpon>201703092303596_worker.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092320293_add workerzip.cs" />
+    <Compile Include="Migrations\201703092320293_add workerzip.Designer.cs">
+      <DependentUpon>201703092320293_add workerzip.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092341038_re-spell.cs" />
+    <Compile Include="Migrations\201703092341038_re-spell.Designer.cs">
+      <DependentUpon>201703092341038_re-spell.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201703092342249_worker-update.cs" />
+    <Compile Include="Migrations\201703092342249_worker-update.Designer.cs">
+      <DependentUpon>201703092342249_worker-update.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\City.cs" />
@@ -247,8 +275,10 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\Boostwatch\bootstrap-cyborg.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\gogreen.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -321,9 +351,11 @@
     <Content Include="Views\Customers\Edit.cshtml" />
     <Content Include="Views\Worker\Create.cshtml" />
     <Content Include="Views\Customers\Create.cshtml" />
+    <Content Include="Views\Customers\update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Content\image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
@@ -336,6 +368,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201703061839133_adding database.resx">
       <DependentUpon>201703061839133_adding database.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092215457_adding errormessage.resx">
+      <DependentUpon>201703092215457_adding errormessage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092222215_adding name.resx">
+      <DependentUpon>201703092222215_adding name.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092225019_change.resx">
+      <DependentUpon>201703092225019_change.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092303596_worker.resx">
+      <DependentUpon>201703092303596_worker.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092320293_add workerzip.resx">
+      <DependentUpon>201703092320293_add workerzip.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092341038_re-spell.resx">
+      <DependentUpon>201703092341038_re-spell.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201703092342249_worker-update.resx">
+      <DependentUpon>201703092342249_worker-update.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,55 +1,42 @@
 ﻿@model IEnumerable<KouTrashCollector.Models.Customer>
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-<div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-        <h3> <b>Membership Overview</b></h3>
-        <ul>
-            <li>Front door trash and recycle pick up service</li>
-            <li>Help you live a healthier life style</li>
-            <li>Get rid of smelly trash</li>
-            <li>Help keep your community clean</li>
-        </ul>
-    </div>
-    <div class="col-md-4">
-        =
-    </div>
-</div>
 
 
+<center>
 
 
+        <h3 style="color:green"> <b>Membership Benefits</b></h3>
+<table bag-color="black">
 
-<div class="row">
-    <div class="col-md-4">
-    </div>
-    <div class="col-md-4">
-        <h3> <b>Service Fees</b></h3>
-        <table style="width:75%" height="50" border="1">
-            <tr><td align="center"><b>One Time</b></td><td align="center"><b>Weekly</b></td></tr>
-            <tr><td align="center">$10.00</td><td align="center">$8.00</td></tr>
+    <tr><td>- Recieve fast pick-up service</td></tr>
+    <tr><td>- Recieve monthly discount coupons</td></tr>
+    <tr><td>- Cleaner enviroment for their home and community</td></tr>
+
+
+</table>
+    <br />
+    <br />
+
+
+        <h3 style="color:green"> <b>Service Fees</b></h3>
+        <table style="width:50%" height="50" border="1">
+            <tr>
+            <td align="center"><b>One A Week</b></td>
+            <td align="center"><b>Twice a Week</b></td>
+            <td align="center"><b>Once a Month</b></td>
+            <td align="center"><b>Twice A Month</b></td></tr>
+            <tr>
+            <td align="center">$25.00</td>
+            <td align="center">$35.00</td>
+            <td align="center">$8.00</td>
+            <td align="center">$15.00</td></tr>
         </table>
-    </div>
-    <div class="col-md-4">
-    </div>
-</div>
 
-<div class="row">
-    <div class="col-md-4">
-    </div>
+    <br />
 
-    <div class="col-md-4">
-        <br />
-        Register to become a
 
-        @Html.ActionLink("Customer!", "New", null, new { @class = "btn btn-primary" })
 
-    </div>
-    <div class="col-md-4">
-    </div>
-</div>
+Help us keep the enviroment clean by joining today!<br /> <br />
 
+@Html.ActionLink("Sign Up", "New", null, new { @class = "btn btn-primary" })
+
+</center>

@@ -7,6 +7,7 @@ using System.Web.Mvc;
 using KouTrashCollector.Models;
 //using KouTrashCollector.Models.ViewModel;
 using KouTrashCollector.ViewModel;
+using System.Net;
 
 namespace KouTrashCollector.Controllers
 {
@@ -23,7 +24,7 @@ namespace KouTrashCollector.Controllers
         {
             _context.Dispose();
         }
-
+        [Authorize(Roles = "Admin, User")] 
         public ViewResult Index()
         {
             var customers = _context.Customers.Include(m => m.MembershipType).Include(z => z.City).Include(y => y.State).Include(d => d.PickUpDay).Include(l => l.Zipcode).ToList();
@@ -141,6 +142,36 @@ namespace KouTrashCollector.Controllers
             ViewBag.Message = "Your contact page.";
 
             return View();
+        }
+        public ActionResult update()
+        {
+            ViewBag.Message = "Your contact page.";
+
+            return View();
+        }
+        public ActionResult Delete(int id)
+        {
+            if (id == null)
+            {
+                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
+            }
+            Customer customer = _context.Customers.Find(id);
+            if (customer == null)
+            {
+                return HttpNotFound();
+            }
+            return View(customer);
+        }
+
+        // POST: Workers/Delete/5
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteConfirmed(int id)
+        {
+            Customer customer = _context.Customers.Find(id);
+            _context.Customers.Remove(customer);
+            _context.SaveChanges();
+            return RedirectToAction("Index");
         }
 
     }

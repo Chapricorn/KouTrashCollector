@@ -1,14 +1,13 @@
 ﻿@model KouTrashCollector.Models.Worker
 
-<br /><br /><br /><br />
-<div class="container">
-    <center><img src="~/Content/image/Ginkologo_final_web.jpg" /></center>
+
     @{
         ViewBag.Title = "EditWorker";
     }
 
-    <h2>Edit Patients Information</h2>
-
+   <center> <h3>Employee Information Update</h3></center>
+<div class="row">
+    <div class="col-md-6">
     @using (Html.BeginForm())
     {
         @Html.AntiForgeryToken()
@@ -55,14 +54,61 @@
             <div class="form-group">
                 <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Save" class="btn btn-default" />
+                    <button type="submit" class="btn btn-primary" style="color:white"> @Html.ActionLink("Return to Employee List", "Index")</button>
                 </div>
             </div>
         </div>
     }
 
-    <div>
-        @Html.ActionLink("Back to List", "Index")
-    </div>
+
+
 
 </div>
 
+    <div class="col-md-6">
+    
+        <h4>Territory Chart</h4>
+        <table style="width:30%" height="50" border="1">
+            <tr>
+                <td align="center"><b>Zipcode Territory</b></td>
+            </tr>
+            <tr>
+                <td align="center"><b>1</b></td>
+                <td align="center"><b>53233</b></td>
+            </tr>
+            <tr>
+                <td align="center">2</td>
+                <td align="center">53208</td>
+            </tr>
+            <tr>
+                <td align="center"><b>3</b></td>
+                <td align="center"><b>53218</b></td>
+            </tr>
+            <tr>
+                <td align="center">4</td>
+                <td align="center">53219</td>
+            </tr>
+            <tr>
+                <td align="center"><b>5</b></td>
+                <td align="center"><b>53223</b></td>
+            </tr>
+            <tr>
+                <td align="center">6</td>
+                <td align="center">53225</td>
+            </tr>
+            <tr>
+                <td align="center"><b>7</b></td>
+                <td align="center"><b>53224</b></td>
+            </tr>
+            <tr>
+                <td align="center">8</td>
+                <td align="center">53217</td>
+            </tr>
+            <tr>
+                <td align="center"><b>9</b></td>
+                <td align="center"><b>53129</b></td>
+            </tr>
+
+        </table>
+    </div>
+    </div>

@@ -5,9 +5,9 @@
         ViewBag.Title = "Delete";
     }
 
-    <h2>Delete Customer</h2>
+    <h2>Delete Employee</h2>
 
-    <h3>Are you sure you want to delete this?</h3>
+    <h3>Are you sure you want to delete this employee?</h3>
     <div>
         <hr />
         <dl class="dl-horizontal">
@@ -51,8 +51,9 @@
 
             <div class="form-actions no-color">
                 <input type="submit" value="Delete" class="btn btn-default" /> |
-                @Html.ActionLink("Back to List", "Index")
+                <button type="submit" class="btn btn-primary" style="color:white"> @Html.ActionLink("Return to Employee List", "Index")</button>
             </div>
+
         }
     </div>
 </div>

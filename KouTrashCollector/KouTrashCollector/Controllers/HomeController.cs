@@ -39,5 +39,7 @@ namespace KouTrashCollector.Controllers
         {
             return View();
         }
+
+
     }
 }

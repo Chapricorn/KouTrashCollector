@@ -24,6 +24,7 @@ namespace KouTrashCollector.Controllers
             _context.Dispose();
         }
         // GET: Worker
+
         public ActionResult Index()
         {
             var workers = _context.Workers.Include(m => m.ZipcodeTerritory).ToList();
