@@ -207,7 +207,7 @@ namespace KouTrashCollector.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult EditWorker([Bind(Include = "Id,FirstName,LastName,ZipcodeTerritory,EmailAddress")] Worker worker)
+        public ActionResult EditWorker([Bind(Include = "Id,FirstName,LastName,ZipcodeTerritoryId,EmailAddress")] Worker worker)
         {
             if (ModelState.IsValid)
             {
